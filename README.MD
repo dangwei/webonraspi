@@ -1,217 +1,84 @@
-fancyBox
-========
+README：
+=======
 
-fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages.
+本站[http://hugozhu.myalert.info](http://hugozhu.myalert.info)同时托管在家里的[Raspberry Pi](http://www.raspberrypi.org)和[Github Pages](http://pages.github.com/)上，并同步保持更新，海外用户会访问Github，国内用户则会访问Pi，不同线路解析域名 **hugozhu.myalert.info** 到不同的服务器是通过[DnsPod](http://dnspod.cn)的服务实现的，这么好的服务还是免费的，这里推荐一下。
 
-More information and examples: http://www.fancyapps.com/fancybox/
+因为Github Pages只能支持静态网页，你需要一个能生成静态网页的博客生成引擎。我使用的是[gor](http://github.com/wendal/gor)，我fork了一个在[http://github.com/hugozhu/gor](http://github.com/hugozhu/gor)， 也可以使用[ruhoh](http://ruhoh.com)，[Google一下还有很多](https://www.google.com/search?q=static+blog+generator&hl=en&newwindow=1&client=safari&rls=en&biw=1238&bih=868&ei=msAuUY-vDMKO2AWQ7IHoBQ&sqi=2&start=10&sa=N)。
 
-License: http://www.fancyapps.com/fancybox/#license
+静态页面博客的好处：
+---------------
+1. 性能是最好的，很合适用Raspberry Pi来做服务器，节省资源；
+2. 文章可以用Markdown格式来编写，采用Github来做版本控制，我的Blog仓库在 http://github.com/hugozhu/blog ，数据安全很好，误删除也不担心了；
+3. 很容易找到托管环境，方便迁移；
+4. 用Gor在Pi上生成速度很快；再用Nginx提供Web服务，可以直接在Pi上写Blog；
+5. 大繁至简
 
-Copyright (c) 2012 Janis Skarnelis - janis@fancyapps.com
+Github设置
+--------- 
+1. 在你的仓库里增加一个your_github_id.github.com，比如我的github ID是hugozhu，相应的仓库名就是[hugozhu.github.com](https://github.com/hugozhu/hugozhu.github.com)，这个仓库也就是网站的根目录了，在这里放生成好的静态文件
+2. 如果你需要用自己的域名，而不是Github提供的，可以在根目录下增加一个[CNAME](https://github.com/hugozhu/hugozhu.github.com/blob/master/CNAME)文件,文件内容则是你的域名，在DnsPod上需要建一个CNAME记录，将你的域名指向your_github_id.github.com. 也就是github原来分配给你的，完成这个设置后，访问your_github_id.github.com会跳转到你的域名；
+3. 每次更新后，Github会在10分钟内生效。
 
-
-How to use
-----------
-
-To get started, download the plugin, unzip it and copy files to your website/application directory.
-Load files in the <head> section of your HTML document. Make sure you also add the jQuery library.
-
-    <head>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-        <script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
-    </head>
-
-Create your links with a `title` if you want a title to be shown, and add a class:
-
-    <a href="large_image.jpg" class="fancybox" title="Sample title"><img src="small_image.jpg" /></a>
-
-If you have a set of related items that you would like to group,
-additionally include a group name in the `rel` (or `data-fancybox-group`) attribute:
-
-    <a href="large_1.jpg" class="fancybox" rel="gallery" title="Sample title 1"><img src="small_1.jpg" /></a>
-    <a href="large_2.jpg" class="fancybox" rel="gallery" title="Sample title 1"><img src="small_2.jpg" /></a>
-
-Initialise the script like this:
-
-    <script>
-        $(document).ready(function() {
-            $('.fancybox').fancybox();
-        });
-    </script>
-
-May also be passed an optional options object which will extend the default values. Example:
-
-    <script>
-        $(document).ready(function() {
-            $('.fancybox').fancybox({
-                padding : 0,
-                openEffect  : 'elastic'
-            });
-        });
-    </script>
-
-Tip: Automatically group and apply fancyBox to all images:
-
-    $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.png'],a[href$='.gif']").attr('rel', 'gallery').fancybox();
-
-Script uses the `href` attribute of the matched elements to obtain the location of the content and to figure out content type you want to display.
-You can specify type directly by adding classname (fancybox.image, fancybox.iframe, etc) or `data-fancybox-type` attribute:
-
-    //Ajax:
-    <a href="/example.html" class="fancybox fancybox.ajax">Example</a>
-    //or
-    <a href="/example.html" class="fancybox" data-fancybox-type="ajax">Example</a>
-
-    //Iframe:
-    <a href="example.html" class="fancybox fancybox.iframe">Example</a>
-
-    //Inline (will display an element with `id="example"`)
-    <a href="#example" class="fancybox">Example</a>
-
-    //SWF:
-    <a href="example.swf" class="fancybox">Example</a>
-
-    //Image:
-    <a href="example.jpg" class="fancybox">Example</a>
-
-Note, ajax requests are subject to the [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy).
-If fancyBox will not be able to get content type, it will try to guess based on 'href' and will quit silently if would not succeed.
-(this is different from previsous versions where 'ajax' was used as default type or an error message was displayed).
-
-Advanced
+更新博客
 --------
+1. Gor的使用详细说明可见 https://github.com/wendal/gor
+2. 我的整个网站的内容也通过Github开源了: https://github.com/hugozhu/blog
 
-### Helpers
+以我的网站为例：
 
-Helpers provide a simple mechanism to extend the capabilities of fancyBox. There are two built-in helpers - 'overlay' and 'title'.
-You can disable them, set custom options or enable other helpers. Examples:
+    git clone https://github.com/hugozhu/blog
+        Cloning into 'blog'...
+        remote: Counting objects: 190, done.
+        remote: Compressing objects: 100% (146/146), done.
+        remote: Total 190 (delta 81), reused 132 (delta 23)
+        Receiving objects: 100% (190/190), 155.48 KiB | 171 KiB/s, done.
+        Resolving deltas: 100% (81/81), done.
+    cd blog
+    gor compile
+        2013/02/27 13:17:19 gor.go:21: gor ver 2.1
+        2013/02/27 13:17:19 payload.go:572: Load Layout : default
+        2013/02/27 13:17:19 payload.go:572: Load Layout : page
+        2013/02/27 13:17:19 payload.go:572: Load Layout : post
+        2013/02/27 13:17:19 config.go:61: Look lile a Json, try it
+        2013/02/27 13:17:19 config.go:64: It is Json Map
+        2013/02/27 13:17:19 widgets.go:111: Load widget from  widgets/analytics/config.yml
+        2013/02/27 13:17:19 widgets.go:111: Load widget from  widgets/comments/config.yml
+        2013/02/27 13:17:19 widgets.go:111: Load widget from  widgets/google_prettify/config.yml
+        2013/02/27 13:17:19 compile.go:125: Done
+    cd compiled
+    git init
+    git add -A 
+    git commit -m "update website" .
+    git remote add origin hugozhu@github.com:hugozhu/hugozhu.github.com
+    git push -u origin master
 
-    //Disable title helper
-    $(".fancybox").fancybox({
-        helpers:  {
-            title:  null
-        }
-    });
+最后等待10分钟，再打开 http://hugozhu.github.com 就好了。。。       
 
-    //Disable overlay helper
-    $(".fancybox").fancybox({
-        helpers:  {
-            overlay : null
-        }
-    });
+Raspberry Pi设置
+----------------
+安装nginx
 
-    //Change title position and overlay color
-    $(".fancybox").fancybox({
-        helpers:  {
-            title : {
-                type : 'inside'
-            },
-            overlay : {
-                css : {
-                    'background' : 'rgba(255,255,255,0.5)'
-                }
-            }
-        }
-    });
+    sudo apt-get install nginx
+修改文件：/etc/nginx/sites-enabled/default，增加下面内容
 
-    //Enable thumbnail helper and set custom options
-    $(".fancybox").fancybox({
-        helpers:  {
-            thumbs : {
-                width: 50,
-                height: 50
-            }
-        }
-    });
+    server {
+        server_name hugozhu.myalert.info;
 
-
-### API
-
-Also available are event driven callback methods.  The `this` keyword refers to the current or upcoming object (depends on callback method). Here is how you can change title:
-
-    $(".fancybox").fancybox({
-        beforeLoad : function() {
-            this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-
-            /*
-                "this.element" refers to current element, so you can, for example, use the "alt" attribute of the image to store the title:
-                this.title = $(this.element).find('img').attr('alt');
-            */
-        }
-    });
-
-It`s possible to open fancyBox programmatically in various ways:
-
-    //HTML content:
-    $.fancybox( '<div><h1>Lorem Lipsum</h1><p>Lorem lipsum</p></div>', {
-        title : 'Custom Title'
-    });
-
-    //DOM element:
-    $.fancybox( $("#inline"), {
-        title : 'Custom Title'
-    });
-
-    //Custom object:
-    $.fancybox({
-        href: 'example.jpg',
-        title : 'Custom Title'
-    });
-
-    //Array of objects:
-    $.fancybox([
-        {
-            href: 'example1.jpg',
-            title : 'Custom Title 1'
-        },
-        {
-            href: 'example2.jpg',
-            title : 'Custom Title 2'
-        }
-    ], {
-        padding: 0
-    });
-
-There are several methods that allow you to interact with and manipulate fancyBox, example:
-
-    //Close fancybox:
-    $.fancybox.close();
-
-There is a simply way to access wrapping elements using JS:
-
-    $.fancybox.wrap
-    $.fancybox.skin
-    $.fancybox.outer
-    $.fancybox.inner
-
-You can override CSS to customize the look. For example, make navigation arrows always visible,
-change width and move them outside of area (use this snippet after including fancybox.css):
-
-    .fancybox-nav span {
-        visibility: visible;
+        root /home/pi/blog/compiled;
+        
+        location / {
+            ssi on;
+        }     
     }
+重新启动nginx，这样在Pi上也有一个你的个人博客了，方便自己访问，这里有个小小的技巧是可以通过server side include给静态页面增加动态内容，上面的配置在首页上打开了此功能，这样我可以在页底加上如下代码来显示访问者的IP
 
-    .fancybox-nav {
-        width: 80px;
-    }
+    <!--# echo var="remote_addr" default="no" -->
+最后重启Nginx生效
 
-    .fancybox-prev {
-        left: -80px;
-    }
-
-    .fancybox-next {
-        right: -80px;
-    }
-
-In that case, you might want to increase space around box:
-
-    $(".fancybox").fancybox({
-        margin : [20, 60, 20, 60]
-    });
+    sudo /etc/init.d/nginx restart
 
 
-Bug tracker
------------
+## License
 
-Have a bug? Please create an issue on GitHub at https://github.com/fancyapps/fancyBox/issues
+Released under the [MIT License](http://www.opensource.org/licenses/MIT)
+
