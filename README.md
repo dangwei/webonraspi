@@ -1,7 +1,7 @@
 README：
 =======
 
-本站[http://Pi.fendou.info](http://pi.fendou.info)托管在家里的[Raspberry Pi](http://www.raspberrypi.org)上，通过[DnsPod](http://dnspod.cn)域名解析。目的是为了观察家里的三只陆龟。
+[http://Pi.fendou.info](http://pi.fendou.info)托管在家里的[Raspberry Pi](http://www.raspberrypi.org)上，目的是为了观察家里的三只陆龟。
 
 
 ## License
