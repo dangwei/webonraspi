@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - Experience Raspberry Pi</title>
+  {{# page.description }}
+    <meta name="description" content="{{ . }} 树莓派">
+  {{/ page.description }}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    {{{ assets }}}
+
+	<!-- FancyBox Add jQuery library -->
+	<script type="text/javascript" src="/assets/twitter/fancybox/jquery-1.10.1.min.js"></script>
+
+	<!-- FancyBox Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="/assets/twitter/fancybox/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/twitter/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.fancybox').fancybox();
+		});
+	</script>
+    <!-- FancyBox End -->
+
+  <link rel="shortcut icon" href="http://www.raspberrypi.org/favicon.ico">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+-->
+  </head>
+
+  <body>
+
+<a href="https://github.com/dangwei"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:46px;">{{ site.title }}</a>
+          <ul class="nav">
+            {{# site.navigation?to_pages }}
+              {{> pages_list }}
+            {{/ site.navigation?to_pages }}
+            <li style="padding-left:10px">
+              <form class="navbar-search pull-right" method="GET" action="https://www.google.com/search">
+                <input type="text" name="as_q" class="search-query" placeholder=" Search... ">
+                <input type="hidden" name="as_sitesearch" value="pi.fendou.info">
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        {{{ content }}}
+
+        
+
+        <center>
+
+        </center>
+
+      </div>
+
+      <footer>
+        <p align="center">&copy; <a href="http://www.fendou.info">{{ site.author.name }}</a> 2013
+          Powered by <a href="http://www.raspberrypi.org" target="_blank"><img src="http://a0.twimg.com/profile_images/1590336143/Raspi-PGB001_normal.png"/> Raspberry Pi</a>
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+       <!--# echo var="remote_addr" default="no" -->
+       <br/>
+<!-- Start of Woopra Code -->
+<script type="text/javascript">
+function woopraReady(tracker) {
+    tracker.setDomain('pi.fendou.info');
+    tracker.setIdleTimeout(1800000);
+    tracker.track();
+    return false;
+}
+(function() {
+    var wsc = document.createElement('script');
+    wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
+    wsc.type = 'text/javascript';
+    wsc.async = true;
+    var ssc = document.getElementsByTagName('script')[0];
+    ssc.parentNode.insertBefore(wsc, ssc);
+})();
+</script>
+<!-- End of Woopra Code -->      
+</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    {{{ google_prettify }}}
+
+
+</body>
+</html>

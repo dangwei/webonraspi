@@ -1,0 +1,17 @@
+title : Experience Raspberry Pi
+tagline: 树莓派 Raspberry Pi Golang Gor Raspberry Pi Web
+author :
+  name : Dev
+  email : dangwei831120@gmail.com
+  github : dangwei
+  twitter : fendoua
+  feedburner : fendoua
+
+navigation :
+  - posts.md  
+  - archive.html
+  - tags.html
+  - categories.html
+  - pages.html
+  - about.md
+  

@@ -1,0 +1,22 @@
+---
+# Usage: http://ruhoh.com/usage/configure/
+
+RuhohSpec: '1.0'
+theme : twitter
+production_url : http://pi.fendou.info
+
+posts:
+  permalink: /:filename.html
+  summary_lines: 20
+  latest: 10
+
+pages:
+  permalink: 'pretty'
+
+paginator:
+  layout: 'paginator'
+  per_page: 10
+  namespace: '/posts/'
+
+markdown:
+  toc_title: '<h1>目录：</h1>'
